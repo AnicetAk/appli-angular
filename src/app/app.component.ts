@@ -9,5 +9,5 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'angular-test-deploy';
+  title = 'Dieu est capable de tout donc ange met toi au travail';
 }
