@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'angular-test-deploy' title`, () => {
+  it(`should have the 'Dieu est capable de tout donc ange met toi au travail' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('angular-test-deploy');
+    expect(app.title).toEqual('Dieu est capable de tout donc ange met toi au travail');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, angular-test-deploy');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Dieu est capable de tout donc ange met toi au travail');
   });
 });

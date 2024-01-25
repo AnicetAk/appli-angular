@@ -1,0 +1,45 @@
+version: "3.8"
+
+services:
+  feat-angular-front:
+    image: FEAT_IMAGE_NAME
+    container_name: feat-angular-front
+    restart: unless-stopped
+    networks:
+      - traefik_network
+    deploy:
+      resources:
+        limits:
+          memory: 512m
+        reservations:
+          memory: 128m
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.feat-angular-front.rule=Host(`api.feat.operantic.net`)
+      - traefik.http.routers.feat-angular-front.entrypoints=websecure
+      - traefik.http.routers.feat-angular-front.tls.certresolver=letsencrypt
+      - owner=not_tracked
+
+  dev-angular-front:
+    image: DEV_IMAGE_NAME
+    container_name: dev-angular-front
+    restart: unless-stopped
+    networks:
+      - traefik_network
+    deploy:
+      resources:
+        limits:
+          memory: 512m
+        reservations:
+          memory: 128m
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.dev-angular-front.rule=Host(`api.dev.operantic.net`)
+      - traefik.http.routers.dev-angular-front.entrypoints=websecure
+      - traefik.http.routers.dev-angular-front.tls.certresolver=letsencrypt
+      - owner=not_tracked
+
+networks:
+  traefik_network:
+    name: traefik_network
+    external: true
