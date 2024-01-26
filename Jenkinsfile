@@ -34,7 +34,7 @@ pipeline {
           env.IMAGE_NAME = sh(script: 'echo $DOCKER_REGISTRY/feat-angular-front:$(date +%s)', returnStdout: true).trim()
           env.CONST_IMAGE_NAME = "FEAT_IMAGE_NAME"
           env.SERVICE_NAME = "feat-angular-front"
-          if (env.BRANCH_NAME.startsWith('dev')) {
+          if (env.BRANCH_NAME =='dev') {
             env.IMAGE_NAME = sh(script: 'echo $DOCKER_REGISTRY/dev-angular-front:$(date +%s)', returnStdout: true).trim()
             env.CONST_IMAGE_NAME = "DEV_IMAGE_NAME"
             env.SERVICE_NAME = "dev-angular-front"
