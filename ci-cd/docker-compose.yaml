@@ -18,6 +18,7 @@ services:
       - traefik.http.routers.feat-angular-front.rule=Host(`api.feat.operantic.net`)
       - traefik.http.routers.feat-angular-front.entrypoints=websecure
       - traefik.http.routers.feat-angular-front.tls.certresolver=letsencrypt
+      - traefik.http.services.feat-angular-front.loadbalancer.server.port=80
       - owner=not_tracked
 
   dev-angular-front:
@@ -37,6 +38,7 @@ services:
       - traefik.http.routers.dev-angular-front.rule=Host(`api.dev.operantic.net`)
       - traefik.http.routers.dev-angular-front.entrypoints=websecure
       - traefik.http.routers.dev-angular-front.tls.certresolver=letsencrypt
+      - traefik.http.services.dev-angular-front.loadbalancer.server.port=80
       - owner=not_tracked
 
 networks:
